@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cacao Hunters - Reporte Marzo 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0D1B2A;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Slide light */
+        .slide-light {
+            background: #F5F0EB;
+            color: #1a1a1a;
+        }
+
+        .logo-small {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            width: 50px;
+            height: auto;
+            z-index: 100;
+        }
+
+        .brand-name {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #94A3B8;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 900;
+            text-align: center;
+            line-height: 1.1;
+            max-width: 900px;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        h2 {
+            font-size: 44px;
+            font-weight: 900;
+            text-align: center;
+            line-height: 1.2;
+            max-width: 800px;
+            margin-bottom: 30px;
+            letter-spacing: -2px;
+        }
+
+        .highlight {
+            color: #4ADE80;
+        }
+
+        .highlight-dark {
+            color: #16a34a;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            color: #94A3B8;
+            text-align: center;
+            max-width: 700px;
+        }
+
+        /* ===== SLIDE 1: TABLA DE MÉTRICAS ===== */
+        .metrics-table-container {
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 20px;
+        }
+
+        .metrics-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metrics-table thead th {
+            padding: 18px 24px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #94A3B8;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metrics-table thead th:not(:first-child) {
+            text-align: center;
+        }
+
+        .metrics-table tbody td {
+            padding: 20px 24px;
+            font-size: 18px;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .metrics-table tbody td:first-child {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .metrics-table tbody td:not(:first-child) {
+            text-align: center;
+        }
+
+        .metrics-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .metrics-table tbody tr:hover {
+            background: rgba(74, 222, 128, 0.05);
+        }
+
+        .metric-value {
+            font-size: 20px;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .metric-change {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-left: 6px;
+        }
+
+        .metric-change.up {
+            background: rgba(74, 222, 128, 0.15);
+            color: #4ADE80;
+        }
+
+        .metric-change.down {
+            background: rgba(239, 68, 68, 0.15);
+            color: #EF4444;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+        }
+
+        .section-tag-dark {
+            background: rgba(74, 222, 128, 0.15);
+            color: #4ADE80;
+        }
+
+        .section-tag-light {
+            background: rgba(22, 163, 74, 0.1);
+            color: #16a34a;
+        }
+
+        /* ===== SLIDE 1: CALLOUTS ===== */
+        .callouts-row {
+            display: flex;
+            gap: 16px;
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 20px;
+        }
+
+        .callout-card {
+            flex: 1;
+            border-radius: 14px;
+            padding: 20px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .callout-forecast {
+            background: rgba(239, 68, 68, 0.08);
+            border-color: rgba(239, 68, 68, 0.2);
+        }
+
+        .callout-email {
+            background: rgba(74, 222, 128, 0.08);
+            border-color: rgba(74, 222, 128, 0.2);
+        }
+
+        .callout-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+        }
+
+        .callout-forecast .callout-label { color: #F87171; }
+        .callout-email .callout-label { color: #4ADE80; }
+
+        .callout-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .callout-stat {
+            text-align: center;
+        }
+
+        .callout-stat-value {
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .callout-stat-label {
+            font-size: 11px;
+            color: #94A3B8;
+            font-weight: 600;
+        }
+
+        .callout-arrow {
+            font-size: 20px;
+            color: #64748B;
+        }
+
+        .callout-gap {
+            text-align: center;
+            padding: 6px 14px;
+            border-radius: 10px;
+            background: rgba(239, 68, 68, 0.15);
+        }
+
+        .callout-gap-value {
+            font-size: 20px;
+            font-weight: 900;
+            color: #F87171;
+        }
+
+        .callout-gap-label {
+            font-size: 10px;
+            color: #F87171;
+            font-weight: 600;
+        }
+
+        .callout-email-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .callout-email-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .callout-email-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #ffffff;
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .callout-email-stats {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .callout-email-stats span {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.06);
+            color: #94A3B8;
+        }
+
+        .callout-email-revenue {
+            font-size: 14px;
+            font-weight: 900;
+            color: #4ADE80;
+            white-space: nowrap;
+        }
+
+        .callout-total {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .callout-total-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #94A3B8;
+        }
+
+        .callout-total-value {
+            font-size: 20px;
+            font-weight: 900;
+            color: #4ADE80;
+        }
+
+        @media (max-width: 768px) {
+            .callouts-row {
+                flex-direction: column;
+            }
+
+            .callout-row {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .callout-email-item {
+                flex-wrap: wrap;
+            }
+
+            .callout-email-stats {
+                width: 100%;
+            }
+        }
+
+        /* ===== SLIDE 2: ACCIONES ===== */
+        .actions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            width: 100%;
+            max-width: 1100px;
+            margin-top: 10px;
+        }
+
+        .action-card {
+            background: white;
+            border-radius: 14px;
+            padding: 20px 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .action-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .action-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .icon-revenue { background: rgba(59, 130, 246, 0.1); }
+        .icon-conversion { background: rgba(168, 85, 247, 0.1); }
+        .icon-strategy { background: rgba(245, 158, 11, 0.1); }
+        .icon-email { background: rgba(236, 72, 153, 0.1); }
+
+        .action-content {
+            flex: 1;
+        }
+
+        .action-area {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .area-revenue { color: #3B82F6; }
+        .area-conversion { color: #A855F7; }
+        .area-strategy { color: #F59E0B; }
+        .area-email { color: #EC4899; }
+
+        .action-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+
+        .action-result {
+            font-size: 12px;
+            color: #16a34a;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .email-highlight {
+            display: inline-block;
+            background: rgba(22, 163, 74, 0.1);
+            color: #16a34a;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-top: 4px;
+        }
+
+        /* ===== SLIDE 3: PLAN ABRIL ===== */
+        .plan-list {
+            list-style: none;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 10px;
+        }
+
+        .plan-list li {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 22px 28px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .plan-list li:hover {
+            transform: translateY(-2px);
+            background: rgba(74, 222, 128, 0.08);
+        }
+
+        .plan-number {
+            width: 36px;
+            height: 36px;
+            background: #4ADE80;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 900;
+            color: #0D1B2A;
+            flex-shrink: 0;
+        }
+
+        .plan-content {
+            flex: 1;
+        }
+
+        .plan-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .plan-detail {
+            font-size: 14px;
+            color: #94A3B8;
+        }
+
+        .plan-date {
+            font-size: 13px;
+            font-weight: 700;
+            color: #4ADE80;
+            white-space: nowrap;
+        }
+
+        /* ===== NAVEGACIÓN ===== */
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-btn:hover {
+            background: #4ADE80;
+            color: #0D1B2A;
+        }
+
+        .nav-btn-light {
+            background: rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #1a1a1a;
+        }
+
+        .nav-btn-light:hover {
+            background: #16a34a;
+            color: white;
+        }
+
+        .progress {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: #4ADE80;
+            transition: width 0.3s ease;
+            z-index: 200;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 40px;
+            left: 30px;
+            font-size: 14px;
+            color: #64748B;
+            z-index: 100;
+        }
+
+        .fullscreen-hint {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            font-size: 12px;
+            color: #64748B;
+            z-index: 100;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px 20px;
+                overflow-y: auto;
+                justify-content: flex-start;
+                padding-top: 80px;
+            }
+
+            h1 {
+                font-size: 32px;
+                letter-spacing: -1px;
+            }
+
+            h2 {
+                font-size: 26px;
+                letter-spacing: -1px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .metrics-table-container {
+                overflow-x: auto;
+            }
+
+            .metrics-table thead th {
+                font-size: 10px;
+                padding: 12px 10px;
+            }
+
+            .metrics-table tbody td {
+                padding: 14px 10px;
+                font-size: 14px;
+            }
+
+            .metric-value {
+                font-size: 15px;
+            }
+
+            .metric-change {
+                font-size: 10px;
+                padding: 2px 6px;
+                display: block;
+                margin-left: 0;
+                margin-top: 4px;
+                width: fit-content;
+            }
+
+            .actions-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .action-card {
+                padding: 16px;
+            }
+
+            .plan-list li {
+                padding: 16px 18px;
+                flex-wrap: wrap;
+            }
+
+            .plan-date {
+                width: 100%;
+                padding-left: 54px;
+                margin-top: 2px;
+            }
+
+            .fullscreen-hint {
+                display: none;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide.active .section-tag,
+        .slide.active h2,
+        .slide.active .metrics-table-container,
+        .slide.active .actions-grid,
+        .slide.active .plan-list,
+        .slide.active .email-plan,
+        .slide.active .callouts-row {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .slide.active h2 { animation-delay: 0.1s; }
+        .slide.active .metrics-table-container,
+        .slide.active .actions-grid,
+        .slide.active .plan-list,
+        .slide.active .email-plan { animation-delay: 0.2s; }
+
+        /* ===== SLIDE 4: EMAIL MARKETING PLAN ===== */
+        .email-plan {
+            width: 100%;
+            max-width: 1150px;
+            margin-top: 10px;
+        }
+
+        .email-plan-section-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #94A3B8;
+            margin-bottom: 12px;
+            margin-top: 20px;
+            padding-left: 4px;
+        }
+
+        .email-plan-section-title:first-child {
+            margin-top: 0;
+        }
+
+        .email-plan-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .email-flow-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 18px 22px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .email-flow-card:hover {
+            transform: translateY(-2px);
+            background: rgba(74, 222, 128, 0.06);
+        }
+
+        .email-flow-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .email-flow-name {
+            font-size: 15px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.3;
+        }
+
+        .email-flow-badge {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-left: 10px;
+        }
+
+        .badge-auto {
+            background: rgba(139, 92, 246, 0.15);
+            color: #A78BFA;
+        }
+
+        .badge-campaign {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60A5FA;
+        }
+
+        .badge-vip {
+            background: rgba(245, 158, 11, 0.15);
+            color: #FBBF24;
+        }
+
+        .email-flow-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        .email-flow-meta span {
+            font-size: 12px;
+            color: #64748B;
+            font-weight: 600;
+        }
+
+        .email-flow-meta .emails-count {
+            color: #4ADE80;
+        }
+
+        .email-flow-meta .has-discount {
+            color: #FBBF24;
+        }
+
+        .email-flow-focus {
+            font-size: 12px;
+            color: #94A3B8;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .email-plan-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .email-flow-card {
+                padding: 14px 16px;
+            }
+
+            .email-flow-name {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <img src="logo-la-real.png" alt="LA REAL" class="logo-small">
+        <div class="progress" id="progress"></div>
+        <div class="slide-counter" id="slideCounter">1 / 4</div>
+        <div class="fullscreen-hint">Presiona F para pantalla completa</div>
+
+        <!-- SLIDE 1: Métricas de Marzo -->
+        <div class="slide active" id="slide1">
+            <span class="section-tag section-tag-dark">Reporte Marzo 2026</span>
+            <h2>Resultados <span class="highlight">Cacao Hunters</span></h2>
+            <p class="subtitle" style="margin-bottom: 30px; color: #94A3B8;">Ventas netas en Shopify + inversión en pauta — comparado vs. febrero 2026</p>
+            <div class="metrics-table-container">
+                <table class="metrics-table">
+                    <thead>
+                        <tr>
+                            <th>Métrica</th>
+                            <th>Marzo 2026</th>
+                            <th>vs. Febrero</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>💰 Ventas netas</td>
+                            <td><span class="metric-value">$12.025.489</span></td>
+                            <td><span class="metric-change up">↑ 27%</span></td>
+                        </tr>
+                        <tr>
+                            <td>📦 Pedidos</td>
+                            <td><span class="metric-value">91</span></td>
+                            <td><span class="metric-change up">↑ 21%</span></td>
+                        </tr>
+                        <tr>
+                            <td>🧾 Ticket promedio</td>
+                            <td><span class="metric-value">$132.148</span></td>
+                            <td><span class="metric-change up">↑ 4%</span></td>
+                        </tr>
+                        <tr>
+                            <td>🎯 Tasa de conversión</td>
+                            <td><span class="metric-value">1,99%</span></td>
+                            <td><span class="metric-change up">↑ 68%</span></td>
+                        </tr>
+                        <tr>
+                            <td>👁️ Sesiones</td>
+                            <td><span class="metric-value">4.414</span></td>
+                            <td><span class="metric-change up">↑ 27%</span></td>
+                        </tr>
+                        <tr>
+                            <td>📣 Inversión en pauta</td>
+                            <td><span class="metric-value">$66.989</span></td>
+                            <td><span class="metric-change up" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B;">ROAS 3,95x</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Callouts: Forecast + Email Marketing -->
+            <div class="callouts-row">
+                <!-- Forecast gap -->
+                <div class="callout-card callout-forecast">
+                    <div class="callout-label">Forecast vs. Real</div>
+                    <div class="callout-row">
+                        <div class="callout-stat">
+                            <div class="callout-stat-value" style="color: #94A3B8;">$19,2M</div>
+                            <div class="callout-stat-label">Forecast</div>
+                        </div>
+                        <div class="callout-arrow">→</div>
+                        <div class="callout-stat">
+                            <div class="callout-stat-value" style="color: #ffffff;">$12,02M</div>
+                            <div class="callout-stat-label">Venta neta</div>
+                        </div>
+                        <div class="callout-arrow">→</div>
+                        <div class="callout-gap">
+                            <div class="callout-gap-value">-$7,17M</div>
+                            <div class="callout-gap-label">A recuperar en abril</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email Marketing Results -->
+                <div class="callout-card callout-email">
+                    <div class="callout-label">Email Marketing — Marzo</div>
+                    <div class="callout-email-grid">
+                        <div class="callout-email-item">
+                            <div class="callout-email-name">"Todavía estás a tiempo"</div>
+                            <div class="callout-email-stats">
+                                <span>33,7% open</span>
+                                <span>25% conv.</span>
+                            </div>
+                            <div class="callout-email-revenue">$1.117.309</div>
+                        </div>
+                        <div class="callout-email-item">
+                            <div class="callout-email-name">"Infaltables para este puente"</div>
+                            <div class="callout-email-stats">
+                                <span>41,9% open</span>
+                                <span>4,08% conv.</span>
+                            </div>
+                            <div class="callout-email-revenue">$165.251</div>
+                        </div>
+                        <div class="callout-total">
+                            <div class="callout-total-label">Total generado por email</div>
+                            <div class="callout-total-value">$1.282.561</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: Acciones de Marzo -->
+        <div class="slide slide-light" id="slide2">
+            <span class="section-tag section-tag-light">Lo que hicimos</span>
+            <h2 style="color: #1a1a1a;">Acciones ejecutadas en <span class="highlight-dark">marzo</span></h2>
+            <div class="actions-grid">
+                <!-- Revenue - Atracción -->
+                <div class="action-card">
+                    <div class="action-icon icon-revenue">🎯</div>
+                    <div class="action-content">
+                        <div class="action-area area-revenue">Revenue — Atracción</div>
+                        <div class="action-title">Creación nuevo portafolio comercial</div>
+                    </div>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon icon-revenue">📘</div>
+                    <div class="action-content">
+                        <div class="action-area area-revenue">Revenue — Atracción</div>
+                        <div class="action-title">Vinculación fan page de Facebook</div>
+                    </div>
+                </div>
+
+                <!-- Eficiencia - Conversión -->
+                <div class="action-card">
+                    <div class="action-icon icon-conversion">🔤</div>
+                    <div class="action-content">
+                        <div class="action-area area-conversion">Eficiencia — Conversión</div>
+                        <div class="action-title">Cambio de tipografía completa del sitio web</div>
+                        <div class="action-result">Nueva tipografía Edmond Sans</div>
+                    </div>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon icon-conversion">🗺️</div>
+                    <div class="action-content">
+                        <div class="action-area area-conversion">Eficiencia — Conversión</div>
+                        <div class="action-title">Cambios en sitio web basados en mapas de calor</div>
+                        <div class="action-result">Menú y orden de productos</div>
+                    </div>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon icon-conversion">💲</div>
+                    <div class="action-content">
+                        <div class="action-area area-conversion">Eficiencia — Conversión</div>
+                        <div class="action-title">Estrategia pricing por volumen de compra</div>
+                        <div class="action-result">Productos de kilo</div>
+                    </div>
+                </div>
+
+                <!-- Amplificación - Estrategia -->
+                <div class="action-card">
+                    <div class="action-icon icon-strategy">📊</div>
+                    <div class="action-content">
+                        <div class="action-area area-strategy">Amplificación — Estrategia</div>
+                        <div class="action-title">Diseño y presentación de estrategia B2B + B2C para el canal digital</div>
+                    </div>
+                </div>
+
+                <!-- Lealtad - Email Marketing -->
+                <div class="action-card">
+                    <div class="action-icon icon-email">✉️</div>
+                    <div class="action-content">
+                        <div class="action-area area-email">Lealtad — Email Marketing</div>
+                        <div class="action-title">"Infaltables para este puente"</div>
+                        <span class="email-highlight">41,9% apertura · $165.251 en ventas</span>
+                    </div>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon icon-email">✉️</div>
+                    <div class="action-content">
+                        <div class="action-area area-email">Lealtad — Email Marketing</div>
+                        <div class="action-title">"Todavía estás a tiempo"</div>
+                        <span class="email-highlight">33,7% apertura · $1.117.309 en ventas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Plan Abril -->
+        <div class="slide" id="slide3">
+            <span class="section-tag section-tag-dark">Lo que viene</span>
+            <h2>Plan de <span class="highlight">abril</span></h2>
+            <ul class="plan-list">
+                <li>
+                    <div class="plan-number">1</div>
+                    <div class="plan-content">
+                        <div class="plan-title">Vinculación Instagram a portafolio comercial</div>
+                        <div class="plan-detail">Pendiente que se libere la cuenta</div>
+                    </div>
+                    <div class="plan-date">10 de abril</div>
+                </li>
+                <li>
+                    <div class="plan-number">2</div>
+                    <div class="plan-content">
+                        <div class="plan-title">Paquete de contenido para pauta</div>
+                        <div class="plan-detail">40 imágenes + 10 piezas gráficas</div>
+                    </div>
+                    <div class="plan-date">10 de abril</div>
+                </li>
+                <li>
+                    <div class="plan-number">3</div>
+                    <div class="plan-content">
+                        <div class="plan-title">Implementación cambios en página de producto + home page</div>
+                        <div class="plan-detail">Optimización basada en datos de conversión</div>
+                    </div>
+                    <div class="plan-date">10 de abril</div>
+                </li>
+                <li>
+                    <div class="plan-number">4</div>
+                    <div class="plan-content">
+                        <div class="plan-title">Campañas de email marketing — abril</div>
+                        <div class="plan-detail">Diseño e implementación de campañas del mes</div>
+                    </div>
+                    <div class="plan-date">7 de abril</div>
+                </li>
+                <li>
+                    <div class="plan-number">5</div>
+                    <div class="plan-content">
+                        <div class="plan-title">Benchmark de competencia — Email marketing</div>
+                        <div class="plan-detail">Entrega de informe de análisis competitivo</div>
+                    </div>
+                    <div class="plan-date">8 de abril</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- SLIDE 4: Plan Email Marketing -->
+        <div class="slide" id="slide4">
+            <span class="section-tag section-tag-dark">Email Marketing</span>
+            <h2>Plan de <span class="highlight">email marketing</span> — abril</h2>
+            <div class="email-plan">
+                <!-- Automatizaciones -->
+                <div class="email-plan-section-title">Automatizaciones (flows permanentes)</div>
+                <div class="email-plan-grid">
+                    <div class="email-flow-card">
+                        <div class="email-flow-header">
+                            <div class="email-flow-name">Welcome Series</div>
+                            <span class="email-flow-badge badge-auto">Automatización</span>
+                        </div>
+                        <div class="email-flow-meta">
+                            <span class="emails-count">3 emails</span>
+                            <span class="has-discount">10% bienvenida</span>
+                        </div>
+                        <div class="email-flow-focus">Entregar código de descuento + educar sobre orígenes del cacao</div>
+                    </div>
+                    <div class="email-flow-card">
+                        <div class="email-flow-header">
+                            <div class="email-flow-name">Post-compra</div>
+                            <span class="email-flow-badge badge-auto">Automatización</span>
+                        </div>
+                        <div class="email-flow-meta">
+                            <span class="emails-count">3 emails</span>
+                            <span>Sin descuento</span>
+                        </div>
+                        <div class="email-flow-focus">Storytelling — Mayumi, impacto social, premios internacionales</div>
+                    </div>
+                    <div class="email-flow-card">
+                        <div class="email-flow-header">
+                            <div class="email-flow-name">Carrito abandonado</div>
+                            <span class="email-flow-badge badge-auto">Automatización</span>
+                        </div>
+                        <div class="email-flow-meta">
+                            <span class="emails-count">3 emails</span>
+                            <span class="has-discount">10% en último email</span>
+                        </div>
+                        <div class="email-flow-focus">Recordatorio → historia de marca → social proof + incentivo final</div>
+                    </div>
+                    <div class="email-flow-card">
+                        <div class="email-flow-header">
+                            <div class="email-flow-name">Solicitud de reseña</div>
+                            <span class="email-flow-badge badge-auto">Automatización</span>
+                        </div>
+                        <div class="email-flow-meta">
+                            <span class="emails-count">1 email</span>
+                            <span>Sin descuento</span>
+                        </div>
+                        <div class="email-flow-focus">Pedir review público para el ecommerce</div>
+                    </div>
+                </div>
+
+                <!-- Campañas de Abril -->
+                <div class="email-plan-section-title">Campañas de abril</div>
+                <div class="email-plan-grid">
+                    <div class="email-flow-card">
+                        <div class="email-flow-header">
+                            <div class="email-flow-name">Lanzamiento línea Heirloom (B2B + B2C)</div>
+                            <span class="email-flow-badge badge-campaign">Campaña</span>
+                        </div>
+                        <div class="email-flow-meta">
+                            <span class="emails-count">1 email</span>
+                            <span>Sin descuento</span>
+                        </div>
+                        <div class="email-flow-focus">Escasez + exclusividad ecommerce — producto que no se consigue en otro canal</div>
+                    </div>
+                    <div class="email-flow-card">
+                        <div class="email-flow-header">
+                            <div class="email-flow-name">La historia de nuestros cacaocultores</div>
+                            <span class="email-flow-badge badge-campaign">Campaña</span>
+                        </div>
+                        <div class="email-flow-meta">
+                            <span class="emails-count">1 email</span>
+                            <span>Sin descuento</span>
+                        </div>
+                        <div class="email-flow-focus">Storytelling puro — conexión emocional con productores y orígenes</div>
+                    </div>
+                    <div class="email-flow-card">
+                        <div class="email-flow-header">
+                            <div class="email-flow-name">Historia de nuestro cacao</div>
+                            <span class="email-flow-badge badge-campaign">Campaña</span>
+                        </div>
+                        <div class="email-flow-meta">
+                            <span class="emails-count">1 email</span>
+                            <span>Sin descuento</span>
+                        </div>
+                        <div class="email-flow-focus">Educación — proceso bean-to-bar, por qué este chocolate sabe diferente</div>
+                    </div>
+                    <div class="email-flow-card">
+                        <div class="email-flow-header">
+                            <div class="email-flow-name">VIP B2C — Nuevos kits</div>
+                            <span class="email-flow-badge badge-vip">VIP</span>
+                        </div>
+                        <div class="email-flow-meta">
+                            <span class="emails-count">1 email</span>
+                            <span>Sin descuento</span>
+                        </div>
+                        <div class="email-flow-focus">Acceso anticipado 24h antes del lanzamiento público</div>
+                    </div>
+                    <div class="email-flow-card">
+                        <div class="email-flow-header">
+                            <div class="email-flow-name">VIP B2C — La historia de [origen]</div>
+                            <span class="email-flow-badge badge-vip">VIP</span>
+                        </div>
+                        <div class="email-flow-meta">
+                            <span class="emails-count">1 email</span>
+                            <span>Sin descuento</span>
+                        </div>
+                        <div class="email-flow-focus">Contenido exclusivo mensual — historia real de un cacaotero/origen, rotativo</div>
+                    </div>
+                    <div class="email-flow-card">
+                        <div class="email-flow-header">
+                            <div class="email-flow-name">VIP B2B</div>
+                            <span class="email-flow-badge badge-vip">VIP</span>
+                        </div>
+                        <div class="email-flow-meta">
+                            <span class="emails-count">1 email</span>
+                            <span class="has-discount">Regalo: estuche dorado</span>
+                        </div>
+                        <div class="email-flow-focus">Relación cercana + obsequio + preparar terreno para llamadas de investigación</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navegación -->
+        <div class="navigation" id="navButtons">
+            <button class="nav-btn" onclick="prevSlide()">←</button>
+            <button class="nav-btn" onclick="nextSlide()">→</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 4;
+
+        function showSlide(n) {
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active');
+            });
+            document.getElementById(`slide${n}`).classList.add('active');
+            document.getElementById('slideCounter').textContent = `${n} / ${totalSlides}`;
+            document.getElementById('progress').style.width = `${(n / totalSlides) * 100}%`;
+
+            // Adapt nav buttons for light/dark slides
+            const activeSlide = document.getElementById(`slide${n}`);
+            const isLight = activeSlide.classList.contains('slide-light');
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => {
+                if (isLight) {
+                    btn.classList.add('nav-btn-light');
+                } else {
+                    btn.classList.remove('nav-btn-light');
+                }
+            });
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            } else if (e.key === 'f' || e.key === 'F') {
+                toggleFullscreen();
+            }
+        });
+
+        document.querySelector('.presentation').addEventListener('click', (e) => {
+            if (!e.target.closest('.navigation')) {
+                nextSlide();
+            }
+        });
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        showSlide(1);
+    </script>
+</body>
+</html>
