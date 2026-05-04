@@ -1131,7 +1131,7 @@
     <div class="presentation">
         <img src="logo-la-real.png" alt="LA REAL" class="logo-small">
         <div class="progress" id="progress"></div>
-        <div class="slide-counter" id="slideCounter">1 / 7</div>
+        <div class="slide-counter" id="slideCounter">1 / 8</div>
         <div class="fullscreen-hint">Presiona F para pantalla completa</div>
 
         <!-- ==================== SLIDE 1: ÍNDICE ==================== -->
@@ -1153,7 +1153,7 @@
                     <div class="month-label">Ventas netas · 97 pedidos</div>
                 </button>
             </div>
-            <button class="summary-link" onclick="goToSlide(7)">Ver resumen ejecutivo →</button>
+            <button class="summary-link" onclick="goToSlide(8)">Ver resumen ejecutivo →</button>
         </div>
 
         <!-- ==================== SLIDE 2: MARZO — MÉTRICAS ==================== -->
@@ -1578,8 +1578,136 @@
             </div>
         </div>
 
-        <!-- ==================== SLIDE 7: RESUMEN EJECUTIVO ==================== -->
+        <!-- ==================== SLIDE 7: TRÁFICO ENTRE AGENCIAS ==================== -->
         <div class="slide" id="slide7">
+            <span class="section-tag section-tag-dark">Coordinación · Mayo 2026</span>
+            <h2>Tráfico entre <span class="highlight">agencias</span></h2>
+
+            <!-- Resumen abril compacto -->
+            <div style="width:100%; max-width:1100px; padding:14px 22px; background:rgba(74,222,128,0.06); border:1px solid rgba(74,222,128,0.2); border-radius:12px; margin-bottom:14px; display:flex; gap:24px; align-items:center; justify-content:space-around; flex-wrap:wrap;">
+                <div style="font-size:10px; font-weight:700; color:#94A3B8; text-transform:uppercase; letter-spacing:1.5px;">Resumen abril</div>
+                <div><span style="color:#4ADE80; font-size:16px; font-weight:900;">$12,13M</span> <span style="color:#94A3B8; font-size:12px;">ventas</span></div>
+                <div><span style="color:#4ADE80; font-size:16px; font-weight:900;">97</span> <span style="color:#94A3B8; font-size:12px;">pedidos</span></div>
+                <div><span style="color:#4ADE80; font-size:16px; font-weight:900;">$1,57M</span> <span style="color:#94A3B8; font-size:12px;">email</span></div>
+                <div><span style="color:#4ADE80; font-size:16px; font-weight:900;">7,28x</span> <span style="color:#94A3B8; font-size:12px;">MER pauta</span></div>
+            </div>
+
+            <!-- Pendientes -->
+            <div style="width:100%; max-width:1100px;">
+                <div class="email-plan-section-title" style="margin-top:0;">Pendientes · LA REAL</div>
+                <ul class="plan-list" style="margin-top:0; margin-bottom:6px;">
+                    <li style="padding:12px 18px; margin-bottom:6px;">
+                        <div class="plan-number" style="width:30px; height:30px; font-size:14px;">1</div>
+                        <div class="plan-content">
+                            <div class="plan-title" style="font-size:15px;">Sitio web nuevo</div>
+                            <div class="plan-detail" style="font-size:12px;">Entrega del rediseño del ecommerce</div>
+                        </div>
+                        <div style="display:flex; gap:18px; align-items:center;">
+                            <div style="text-align:right;">
+                                <div style="font-size:9px; color:#94A3B8; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Entrega</div>
+                                <div style="font-size:13px; color:#4ADE80; font-weight:900; white-space:nowrap;">Mié 6 may</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li style="padding:12px 18px; margin-bottom:6px;">
+                        <div class="plan-number" style="width:30px; height:30px; font-size:14px;">2</div>
+                        <div class="plan-content">
+                            <div class="plan-title" style="font-size:15px;">Email "Notas de origen"</div>
+                            <div class="plan-detail" style="font-size:12px;">Email marketing · campaña de mayo</div>
+                        </div>
+                        <div style="display:flex; gap:14px; align-items:center;">
+                            <div style="text-align:right;">
+                                <div style="font-size:9px; color:#94A3B8; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Entrega</div>
+                                <div style="font-size:13px; color:#FBBF24; font-weight:900; white-space:nowrap;">6 may</div>
+                            </div>
+                            <div style="text-align:right;">
+                                <div style="font-size:9px; color:#94A3B8; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Envío</div>
+                                <div style="font-size:13px; color:#4ADE80; font-weight:900; white-space:nowrap;">Mar 6 may</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li style="padding:12px 18px; margin-bottom:6px;">
+                        <div class="plan-number" style="width:30px; height:30px; font-size:14px;">3</div>
+                        <div class="plan-content">
+                            <div class="plan-title" style="font-size:15px;">Email "Heirloom"</div>
+                            <div class="plan-detail" style="font-size:12px;">Email marketing · campaña de mayo</div>
+                        </div>
+                        <div style="display:flex; gap:14px; align-items:center;">
+                            <div style="text-align:right;">
+                                <div style="font-size:9px; color:#94A3B8; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Entrega</div>
+                                <div style="font-size:13px; color:#FBBF24; font-weight:900; white-space:nowrap;">6 may</div>
+                            </div>
+                            <div style="text-align:right;">
+                                <div style="font-size:9px; color:#94A3B8; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Envío</div>
+                                <div style="font-size:13px; color:#4ADE80; font-weight:900; white-space:nowrap;">Jue 8 may</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li style="padding:12px 18px; margin-bottom:6px;">
+                        <div class="plan-number" style="width:30px; height:30px; font-size:14px;">4</div>
+                        <div class="plan-content">
+                            <div class="plan-title" style="font-size:15px;">Email "Bundles"</div>
+                            <div class="plan-detail" style="font-size:12px;">Email marketing · campaña de mayo</div>
+                        </div>
+                        <div style="display:flex; gap:14px; align-items:center;">
+                            <div style="text-align:right;">
+                                <div style="font-size:9px; color:#94A3B8; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Entrega</div>
+                                <div style="font-size:13px; color:#FBBF24; font-weight:900; white-space:nowrap;">6 may</div>
+                            </div>
+                            <div style="text-align:right;">
+                                <div style="font-size:9px; color:#94A3B8; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Envío</div>
+                                <div style="font-size:13px; color:#4ADE80; font-weight:900; white-space:nowrap;">Dom 11 may</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li style="padding:12px 18px; margin-bottom:6px;">
+                        <div class="plan-number" style="width:30px; height:30px; font-size:14px;">5</div>
+                        <div class="plan-content">
+                            <div class="plan-title" style="font-size:15px;">Solicitar anuncios nuevos a Cacao Hunters</div>
+                            <div class="plan-detail" style="font-size:12px;">Diego (diseñador CH) · piezas basadas en rendimiento</div>
+                        </div>
+                        <div style="display:flex; gap:14px; align-items:center;">
+                            <div style="text-align:right;">
+                                <div style="font-size:9px; color:#94A3B8; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Solicitud</div>
+                                <div style="font-size:13px; color:#4ADE80; font-weight:900; white-space:nowrap;">Mar 5 may</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+                    <div>
+                        <div class="email-plan-section-title">Pendientes · Baboom</div>
+                        <ul class="plan-list" style="margin-top:0;">
+                            <li style="padding:12px 18px; margin-bottom:0;">
+                                <div class="plan-number" style="width:30px; height:30px; font-size:14px;">1</div>
+                                <div class="plan-content">
+                                    <div class="plan-title" style="font-size:15px;">Contenido UGC</div>
+                                    <div class="plan-detail" style="font-size:12px;">Definir cantidad y fechas de entrega</div>
+                                </div>
+                                <span class="plan-status status-pending">Por definir</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="email-plan-section-title">Pendientes · Carolina del Castillo</div>
+                        <ul class="plan-list" style="margin-top:0;">
+                            <li style="padding:12px 18px; margin-bottom:0;">
+                                <div class="plan-number" style="width:30px; height:30px; font-size:14px;">1</div>
+                                <div class="plan-content">
+                                    <div class="plan-title" style="font-size:15px;">Contenido fotográfico</div>
+                                    <div class="plan-detail" style="font-size:12px;">Productos Cacao Hunters</div>
+                                </div>
+                                <span class="plan-status status-pending">Por definir</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== SLIDE 8: RESUMEN EJECUTIVO ==================== -->
+        <div class="slide" id="slide8">
             <span class="section-tag section-tag-dark">Acumulado 2026</span>
             <h2>Resumen <span class="highlight">ejecutivo</span></h2>
 
@@ -1641,7 +1769,7 @@
 
     <script>
         let currentSlide = 1;
-        const totalSlides = 7;
+        const totalSlides = 8;
 
         function goToSlide(n) {
             currentSlide = n;
