@@ -667,10 +667,10 @@
         /* ===== INDEX SLIDE (MONTHS HUB) ===== */
         .months-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
             width: 100%;
-            max-width: 780px;
+            max-width: 1000px;
             margin-top: 10px;
         }
 
@@ -1131,7 +1131,7 @@
     <div class="presentation">
         <img src="logo-la-real.png" alt="LA REAL" class="logo-small">
         <div class="progress" id="progress"></div>
-        <div class="slide-counter" id="slideCounter">1 / 8</div>
+        <div class="slide-counter" id="slideCounter">1 / 10</div>
         <div class="fullscreen-hint">Presiona F para pantalla completa</div>
 
         <!-- ==================== SLIDE 1: ÍNDICE ==================== -->
@@ -1146,14 +1146,21 @@
                     <div class="month-metric">$12.025.489</div>
                     <div class="month-label">Ventas netas · 91 pedidos</div>
                 </button>
-                <button class="month-card current" onclick="goToSlide(4)">
+                <button class="month-card" onclick="goToSlide(4)">
                     <div class="month-name">Abril</div>
                     <div class="month-meta">Reporte completo</div>
                     <div class="month-metric">$12.126.411</div>
                     <div class="month-label">Ventas netas · 97 pedidos</div>
                 </button>
+                <button class="month-card current" onclick="goToSlide(7)">
+                    <span class="month-badge">En curso</span>
+                    <div class="month-name">Mayo</div>
+                    <div class="month-meta">Parcial 1–6 may</div>
+                    <div class="month-metric">$2.358.654</div>
+                    <div class="month-label">Ventas netas · 19 pedidos</div>
+                </button>
             </div>
-            <button class="summary-link" onclick="goToSlide(8)">Ver resumen ejecutivo →</button>
+            <button class="summary-link" onclick="goToSlide(10)">Ver resumen ejecutivo →</button>
         </div>
 
         <!-- ==================== SLIDE 2: MARZO — MÉTRICAS ==================== -->
@@ -1578,8 +1585,193 @@
             </div>
         </div>
 
-        <!-- ==================== SLIDE 7: TRÁFICO ENTRE AGENCIAS ==================== -->
+        <!-- ==================== SLIDE 7: MAYO PARCIAL — MÉTRICAS ==================== -->
         <div class="slide" id="slide7">
+            <span class="section-tag section-tag-dark">Mayo 2026 · Parcial 1–6 may</span>
+            <h2>Resultados parciales de <span class="highlight">mayo</span></h2>
+
+            <!-- Cumplimiento del forecast -->
+            <div class="forecast-bar">
+                <div class="forecast-percentage red">8,4%</div>
+                <div class="forecast-details">
+                    <div class="forecast-label">Cumplimiento del forecast · 6 / 31 días</div>
+                    <div class="forecast-track">
+                        <div class="forecast-fill red" style="width: 8.4%;"></div>
+                    </div>
+                    <div class="forecast-amounts">
+                        <span class="forecast-real">Ventas netas: <strong>$2.358.654</strong></span>
+                        <span class="forecast-meta">Meta: $28.138.551</span>
+                    </div>
+                    <div class="forecast-note">⚠️ Vamos atrasados · ritmo actual $393K/día vs requerido $1,03M/día (2,6x) · proyección lineal cierre: ~$12,2M (43% del forecast)</div>
+                </div>
+            </div>
+
+            <!-- Metrics table -->
+            <div class="metrics-table-container">
+                <table class="metrics-table">
+                    <thead>
+                        <tr>
+                            <th>Métrica</th>
+                            <th>Mayo (1–6)</th>
+                            <th>Detalle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ventas netas</td>
+                            <td><span class="metric-value">$2.358.654</span></td>
+                            <td><span class="metric-change neutral">$393.109 / día</span></td>
+                        </tr>
+                        <tr>
+                            <td>Pedidos</td>
+                            <td><span class="metric-value">19</span></td>
+                            <td><span class="metric-change neutral">3,2 / día</span></td>
+                        </tr>
+                        <tr>
+                            <td>Ticket promedio</td>
+                            <td><span class="metric-value">$124.140</span></td>
+                            <td><span class="metric-change down">↓ 0,7% vs abril</span></td>
+                        </tr>
+                        <tr>
+                            <td>Tasa de conversión</td>
+                            <td><span class="metric-value">1,71%</span></td>
+                            <td><span class="metric-change neutral">20 conversiones</span></td>
+                        </tr>
+                        <tr>
+                            <td>Sesiones</td>
+                            <td><span class="metric-value">1.167</span></td>
+                            <td><span class="metric-change neutral">194 / día</span></td>
+                        </tr>
+                        <tr>
+                            <td>Clientes habituales</td>
+                            <td><span class="metric-value">31,57%</span></td>
+                            <td><span class="metric-change down">↓ 39% vs abril (51,61%)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Top 3 products -->
+            <div class="top-products">
+                <div class="product-card">
+                    <div class="product-rank rank-1">1</div>
+                    <div class="product-info">
+                        <div class="product-name">Kilo Hunters mini Tumaco 82%</div>
+                        <div class="product-units">Líder histórico del portafolio</div>
+                    </div>
+                    <div class="product-revenue">$394K</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-rank rank-2">2</div>
+                    <div class="product-info">
+                        <div class="product-name">Kilo Hunters mini Colombia 100%</div>
+                        <div class="product-units">Empate técnico con Tumaco 70%</div>
+                    </div>
+                    <div class="product-revenue">$272K</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-rank rank-3">3</div>
+                    <div class="product-info">
+                        <div class="product-name">Kilo Hunters mini Tumaco 70%</div>
+                        <div class="product-units">Empate técnico con Colombia 100%</div>
+                    </div>
+                    <div class="product-revenue">$272K</div>
+                </div>
+            </div>
+
+            <!-- Note -->
+            <div class="slide-note slide-note-info">
+                ℹ️ Datos parciales · cierre de mes el 31 de mayo · próxima actualización con cifras finales
+            </div>
+        </div>
+
+        <!-- ==================== SLIDE 8: MAYO PARCIAL — PAUTA ==================== -->
+        <div class="slide" id="slide8">
+            <span class="section-tag section-tag-dark">Pauta digital — mayo (1–6)</span>
+            <h2>Inversión en <span class="highlight">pauta</span></h2>
+
+            <!-- Hero metrics -->
+            <div class="ytd-hero" style="margin-bottom: 22px;">
+                <div class="ytd-card">
+                    <div class="ytd-label">Inversión total</div>
+                    <div class="ytd-value">$439.694</div>
+                    <div class="ytd-sub">10 compras · CPA $43.969</div>
+                </div>
+                <div class="ytd-card">
+                    <div class="ytd-label">MER Shopify</div>
+                    <div class="ytd-value">5,36x</div>
+                    <div class="ytd-sub">Ventas netas / inversión · ROAS Meta 3,48x</div>
+                </div>
+                <div class="ytd-card">
+                    <div class="ytd-label">Clics al sitio</div>
+                    <div class="ytd-value">414</div>
+                    <div class="ytd-sub">CPC $744 · CTR 1,83%</div>
+                </div>
+                <div class="ytd-card">
+                    <div class="ytd-label">Alcance</div>
+                    <div class="ytd-value">15.638</div>
+                    <div class="ytd-sub">Cuentas Meta · Frec 2,06</div>
+                </div>
+            </div>
+
+            <!-- Conjuntos + Anuncio destacado -->
+            <div class="email-plan" style="max-width: 1000px;">
+                <div class="email-plan-section-title">Conjuntos de anuncios</div>
+                <div class="email-plan-grid">
+                    <div class="email-flow-card">
+                        <div class="email-flow-header">
+                            <div class="email-flow-name">Abierto Colombia · Ciudades principales</div>
+                            <span class="email-flow-badge badge-campaign">Prospección</span>
+                        </div>
+                        <div class="email-flow-meta">
+                            <span class="emails-count">$197.380 gastado</span>
+                            <span>3 compras</span>
+                            <span class="has-discount">ROAS 1,27x</span>
+                        </div>
+                        <div class="email-flow-focus">CPA $65.793 · 168 clics · CTR 1,49%</div>
+                    </div>
+                    <div class="email-flow-card">
+                        <div class="email-flow-header">
+                            <div class="email-flow-name">Remarketing · Ciudades principales</div>
+                            <span class="email-flow-badge badge-vip">Remarketing</span>
+                        </div>
+                        <div class="email-flow-meta">
+                            <span class="emails-count">$242.314 gastado</span>
+                            <span>7 compras</span>
+                            <span class="has-discount">ROAS 5,27x</span>
+                        </div>
+                        <div class="email-flow-focus">CPA $34.616 · 246 clics · CTR 2,22%</div>
+                    </div>
+                </div>
+
+                <div class="email-plan-section-title">★ Anuncio destacado del mes</div>
+                <div class="top-products" style="max-width: 100%;">
+                    <div class="product-card" style="border: 1px solid rgba(74, 222, 128, 0.4); background: rgba(74, 222, 128, 0.06); flex: 2;">
+                        <div class="product-rank rank-1">★</div>
+                        <div class="product-info">
+                            <div class="product-name">10% OFF primera compra · Imagen + catálogo</div>
+                            <div class="product-units">6 compras · CPA $36.991 · gasto $221.948 · CTR 2,23% · 233 clics</div>
+                        </div>
+                        <div class="product-revenue">5,05x</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-rank rank-2">2</div>
+                        <div class="product-info">
+                            <div class="product-name">Catálogo dinámico · Productos</div>
+                            <div class="product-units">1 compra · gasto $10.614 · ROAS más alto</div>
+                        </div>
+                        <div class="product-revenue">14,59x</div>
+                    </div>
+                </div>
+
+                <div class="slide-note slide-note-info" style="margin-top: 16px;">
+                    ℹ️ "10% OFF primera compra" concentra 6 de las 10 compras del mes con apenas 50% del presupuesto · candidato a escalar
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== SLIDE 9: TRÁFICO ENTRE AGENCIAS ==================== -->
+        <div class="slide" id="slide9">
             <span class="section-tag section-tag-dark">Coordinación · Mayo 2026</span>
             <h2>Tráfico entre <span class="highlight">agencias</span></h2>
 
@@ -1707,8 +1899,8 @@
             </div>
         </div>
 
-        <!-- ==================== SLIDE 8: RESUMEN EJECUTIVO ==================== -->
-        <div class="slide" id="slide8">
+        <!-- ==================== SLIDE 10: RESUMEN EJECUTIVO ==================== -->
+        <div class="slide" id="slide10">
             <span class="section-tag section-tag-dark">Acumulado 2026</span>
             <h2>Resumen <span class="highlight">ejecutivo</span></h2>
 
@@ -1717,12 +1909,12 @@
                 <div class="ytd-card">
                     <div class="ytd-label">Ventas netas YTD</div>
                     <div class="ytd-value">$24,15M</div>
-                    <div class="ytd-sub">Marzo + Abril cerrados</div>
+                    <div class="ytd-sub">Marzo + Abril · +$2,36M mayo en curso</div>
                 </div>
                 <div class="ytd-card">
                     <div class="ytd-label">Pedidos YTD</div>
                     <div class="ytd-value">188</div>
-                    <div class="ytd-sub">91 marzo · 97 abril</div>
+                    <div class="ytd-sub">91 marzo · 97 abril · +19 mayo</div>
                 </div>
                 <div class="ytd-card">
                     <div class="ytd-label">Ticket promedio</div>
@@ -1732,7 +1924,7 @@
                 <div class="ytd-card">
                     <div class="ytd-label">Cumplimiento forecast</div>
                     <div class="ytd-value">60,2%</div>
-                    <div class="ytd-sub">$24,15M / $40,15M</div>
+                    <div class="ytd-sub">$24,15M / $40,15M (cerrados)</div>
                 </div>
             </div>
 
@@ -1754,10 +1946,18 @@
                     <div class="timeline-amount">$12.126.411</div>
                     <div class="timeline-compliance yellow">58,0% forecast</div>
                 </div>
+                <div class="timeline-row">
+                    <div class="timeline-month">Mayo<small>1 — 6 may · parcial</small></div>
+                    <div class="timeline-bar-track">
+                        <div class="timeline-bar-fill red" style="width: 8.4%;"></div>
+                    </div>
+                    <div class="timeline-amount">$2.358.654</div>
+                    <div class="timeline-compliance red">8,4% forecast</div>
+                </div>
             </div>
 
             <div class="slide-note slide-note-info">
-                ℹ️ Presentación actualizada cada 15 días · última actualización: 4 de mayo · cierre de abril
+                ℹ️ Presentación actualizada cada 15 días · última actualización: 6 de mayo · parcial mayo (1–6)
             </div>
         </div>
 
@@ -1770,7 +1970,7 @@
 
     <script>
         let currentSlide = 1;
-        const totalSlides = 8;
+        const totalSlides = 10;
 
         function goToSlide(n) {
             currentSlide = n;
